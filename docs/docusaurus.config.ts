@@ -160,6 +160,12 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    metadata: [
+      {
+        name: "google-site-verification",
+        content: "-jqlgm-10aLbyq4UgXkXf0JTZW7tXeB18i2XTAO8QJQ",
+      },
+    ],
   } satisfies Preset.ThemeConfig,
 };
 
