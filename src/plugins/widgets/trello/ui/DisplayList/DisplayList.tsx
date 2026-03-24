@@ -1,4 +1,3 @@
-import React from "react";
 import { DisplayList, Item, colourPalette } from "../../types";
 import { Spinner } from "../../../../shared";
 import "./DisplayList.sass";

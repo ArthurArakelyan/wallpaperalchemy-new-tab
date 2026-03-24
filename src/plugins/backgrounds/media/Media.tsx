@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useObjectUrl, useBackgroundRotation } from "../../../hooks";
 import { db } from "../../../db/state";
 import { useValue } from "../../../lib/db/react";

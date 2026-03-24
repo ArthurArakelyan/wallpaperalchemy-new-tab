@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import * as React from "react";
 // import categories from "./categories";
 import { FormattedMessage } from "react-intl";
 import { pluginMessages } from "../../../locales/messages";

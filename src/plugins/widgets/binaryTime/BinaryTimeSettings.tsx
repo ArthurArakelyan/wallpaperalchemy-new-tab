@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { FormattedMessage, defineMessages, useIntl } from "react-intl";
 import { Props, defaultData } from "./types";
 import TimeZoneInput from "../../../views/shared/timeZone/TimeZoneInput";

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useCachedEffect } from "../../../hooks";
 import { HOURS } from "../../../utils";
 import { getQuote } from "./api";

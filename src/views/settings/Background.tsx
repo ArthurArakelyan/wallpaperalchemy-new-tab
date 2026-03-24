@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
+import * as React from "react";
 import { FormattedMessage, defineMessages, useIntl } from "react-intl";
 import { setBackground } from "../../db/action";
 import { BackgroundDisplay, BackgroundPosition, db } from "../../db/state";

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { useIntl } from "react-intl";
 import "./GitHub.sass";

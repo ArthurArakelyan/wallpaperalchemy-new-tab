@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
 import { ErrorContext } from "../../contexts/error";
 import { UiContext } from "../../contexts/ui";

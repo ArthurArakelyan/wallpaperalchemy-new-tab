@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import { FC, useMemo } from "react";
 import { FormattedMessage } from "react-intl";
 import { useSavedReducer } from "../../../hooks";
 import Input from "./Input";

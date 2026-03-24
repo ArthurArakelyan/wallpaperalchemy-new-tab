@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { defaultData, Props } from "./types";
 import "./Bookmarks.sass";
 import "../links/Links.sass";

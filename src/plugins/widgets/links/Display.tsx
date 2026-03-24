@@ -1,4 +1,5 @@
-import React, { FC, useMemo } from "react";
+import { FC, useMemo } from "react";
+import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
 import { Icon } from "@iconify/react";
 import { Link, Cache } from "./types";

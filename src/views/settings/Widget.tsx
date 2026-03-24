@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { FormattedMessage, defineMessages, useIntl } from "react-intl";
 import { setWidgetDisplay } from "../../db/action";
 import { WidgetState } from "../../db/state";

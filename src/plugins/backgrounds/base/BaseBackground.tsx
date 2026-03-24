@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Icon } from "@iconify/react";
 import { CrossFade } from "react-crossfade-simple";
 import { db } from "../../../db/state";

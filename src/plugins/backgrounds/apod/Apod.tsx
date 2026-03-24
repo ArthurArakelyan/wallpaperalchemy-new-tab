@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { format } from "date-fns";
 import { defaultData, Props } from "./types";
 import { getPicture } from "./api";

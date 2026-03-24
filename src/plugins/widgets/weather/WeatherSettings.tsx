@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import LocationInput from "./LocationInput";
 import { defaultData, Props } from "./types";
