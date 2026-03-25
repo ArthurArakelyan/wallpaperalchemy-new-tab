@@ -97,6 +97,8 @@ const Unsplash: React.FC<Props> = ({
     <BaseBackground
       containerClassName="Unsplash fullscreen"
       url={url}
+      showControls={true}
+      controlsOnHover={!data.showControls}
       showInfo={data.showTitle}
       leftInfo={credits}
       rightInfo={location}

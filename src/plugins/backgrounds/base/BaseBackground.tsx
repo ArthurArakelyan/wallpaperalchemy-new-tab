@@ -19,6 +19,7 @@ interface Props {
   onPrev?: (() => void) | null;
   onNext?: (() => void) | null;
   showControls?: boolean;
+  controlsOnHover?: boolean;
   showInfo?: boolean;
   leftInfo?: CreditLink[];
   rightInfo?: CreditLink | null;
@@ -33,6 +34,7 @@ const BaseBackground: React.FC<Props> = ({
   onPrev = null,
   onNext = null,
   showControls = true,
+  controlsOnHover = false,
   showInfo = true,
   leftInfo = [],
   rightInfo = null,
@@ -113,7 +115,7 @@ const BaseBackground: React.FC<Props> = ({
         </div>
 
         {showControls && (
-          <div className="controls">
+          <div className={`controls ${controlsOnHover ? "is-on-hover" : ""}`}>
             <a className={onPrev ? "" : "hidden"} onClick={onPrev ?? undefined}>
               <Icon icon="feather:arrow-left" />
             </a>{" "}

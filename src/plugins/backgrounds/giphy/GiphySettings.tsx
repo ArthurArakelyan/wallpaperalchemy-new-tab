@@ -98,6 +98,17 @@ const GiphySettings: FC<Props> = ({ data = defaultData, setData }) => {
           description="Label for Giphy NSFW toggle"
         />
       </label>
+
+      <label>
+        <input
+          type="checkbox"
+          checked={data.showControls}
+          onChange={(event) =>
+            setData({ ...data, showControls: event.target.checked })
+          }
+        />{" "}
+        <FormattedMessage {...backgroundMessages.showControls} />
+      </label>
     </div>
   );
 };

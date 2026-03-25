@@ -3,6 +3,7 @@ import * as React from "react";
 import { FormattedMessage, useIntl, defineMessages } from "react-intl";
 import { useObjectUrls } from "../../../hooks";
 import { IconButton, RemoveIcon } from "../../../views/shared";
+import { backgroundMessages } from "../../../locales/messages";
 import BaseSettings from "../base/BaseSettings";
 import "./MediaSettings.sass";
 import { defaultCache, defaultData, Props } from "./types";
@@ -123,6 +124,16 @@ const ImageSettings: React.FC<Props> = ({
           defaultMessage="Media does not sync between devices."
         />
       </p>
+      <label>
+        <input
+          type="checkbox"
+          checked={data.showControls}
+          onChange={(event) =>
+            setData({ ...data, showControls: event.target.checked })
+          }
+        />{" "}
+        <FormattedMessage {...backgroundMessages.showControls} />
+      </label>
     </div>
   );
 };
