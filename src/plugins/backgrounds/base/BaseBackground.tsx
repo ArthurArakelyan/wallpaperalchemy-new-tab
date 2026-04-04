@@ -1,10 +1,12 @@
-import * as React from "react";
-import { Icon } from "@iconify/react";
-import { CrossFade } from "react-crossfade-simple";
-import { db } from "../../../db/state";
-import { useValue } from "../../../lib/db/react";
-import { useIsNight } from "../../../hooks";
 import "./BaseBackground.sass";
+
+import { Icon } from "@iconify/react";
+import * as React from "react";
+import { CrossFade } from "react-crossfade-simple";
+
+import { db } from "../../../db/state";
+import { useIsNight } from "../../../hooks";
+import { useValue } from "../../../lib/db/react";
 
 interface CreditLink {
   label: React.ReactNode;

@@ -1,6 +1,7 @@
 import * as React from "react";
-import { useToggle } from "../../hooks";
 import { useIntl } from "react-intl";
+
+import { useToggle } from "../../hooks";
 import { sectionMessages } from "../../locales/messages";
 
 type Props = {

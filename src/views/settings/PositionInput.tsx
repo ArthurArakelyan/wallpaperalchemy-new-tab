@@ -1,8 +1,10 @@
+import "./PositionInput.sass";
+
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
 import { WidgetPosition } from "../../db/state";
 import { Icon, IconButton } from "../shared";
-import "./PositionInput.sass";
 
 const positions = [
   {

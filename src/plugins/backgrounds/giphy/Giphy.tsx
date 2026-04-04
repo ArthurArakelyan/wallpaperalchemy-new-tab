@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { useBackgroundRotation } from "../../../hooks";
 import BaseBackground from "../base/BaseBackground";
 import { getGifs } from "./api";

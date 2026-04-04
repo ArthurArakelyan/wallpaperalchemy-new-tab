@@ -1,12 +1,14 @@
-import * as React from "react";
+import "./Bitcoin.sass";
+
 import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
+import * as React from "react";
+
+import { usePushError } from "../../../api";
 import { db } from "../../../db/state";
 import { useValue } from "../../../lib/db/react";
-import { usePushError } from "../../../api";
 import { formatBytes, MINUTES } from "../../../utils";
 import { getBlocks } from "./api";
 import { defaultData, Props } from "./types";
-import "./Bitcoin.sass";
 
 const formatDistance = (unixTime: number, locale: string) => {
   const rtf = new Intl.RelativeTimeFormat(locale, {

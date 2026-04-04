@@ -1,5 +1,6 @@
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
 import { DebounceInput } from "../../shared";
 import { defaultData, Props } from "./types";
 

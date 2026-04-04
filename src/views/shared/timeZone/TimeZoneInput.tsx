@@ -1,6 +1,7 @@
 import { getTimezoneOffset } from "date-fns-tz";
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
 import zones from "./zones.json";
 
 type Props = {

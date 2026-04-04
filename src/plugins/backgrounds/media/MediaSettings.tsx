@@ -1,11 +1,13 @@
+import "./MediaSettings.sass";
+
 import { useState } from "react";
 import * as React from "react";
-import { FormattedMessage, useIntl, defineMessages } from "react-intl";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { useObjectUrls } from "../../../hooks";
-import { IconButton, RemoveIcon } from "../../../views/shared";
 import { backgroundMessages } from "../../../locales/messages";
+import { IconButton, RemoveIcon } from "../../../views/shared";
 import BaseSettings from "../base/BaseSettings";
-import "./MediaSettings.sass";
 import { defaultCache, defaultData, Props } from "./types";
 
 const messages = defineMessages({

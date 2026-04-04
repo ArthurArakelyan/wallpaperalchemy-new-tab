@@ -1,9 +1,11 @@
+import "./Widgets.sass";
+
 import * as React from "react";
+
 import { selectWidgets } from "../../db/select";
 import { db, WidgetPosition, WidgetState } from "../../db/state";
 import { useSelector, useValue } from "../../lib/db/react";
 import Slot from "./Slot";
-import "./Widgets.sass";
 
 const Widgets: React.FC = () => {
   const focus = useValue(db, "focus");

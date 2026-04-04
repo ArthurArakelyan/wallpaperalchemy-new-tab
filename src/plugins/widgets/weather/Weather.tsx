@@ -1,13 +1,15 @@
+import "./Weather.sass";
+
+import { Icon } from "@iconify/react";
 import { useEffect } from "react";
 import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
+
 import { useCachedEffect, useTime } from "../../../hooks";
 import { HOURS } from "../../../utils";
-import { Icon } from "@iconify/react";
 import { getForecast, requestLocation } from "./api";
 import { findCurrent, weatherCodes } from "./conditions";
 import { defaultData, Props } from "./types";
-import "./Weather.sass";
 
 const messages = defineMessages({
   high: {

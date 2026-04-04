@@ -1,17 +1,19 @@
+import "./GitHub.sass";
+
 import { FC } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { useIntl } from "react-intl";
-import "./GitHub.sass";
+
 import { useFormatMessages } from "../../../hooks/useFormatMessages";
 import { useTheme } from "../../../hooks/useTheme";
 import {
-  monthMessages,
-  weekdayMessages,
   legendMessages,
   messages,
+  monthMessages,
   tooltipMessages,
+  weekdayMessages,
 } from "./messages";
-import { Props, defaultData } from "./types";
+import { defaultData, Props } from "./types";
 
 const GitHubCalendarWidget: FC<Props> = ({ data = defaultData }) => {
   const intl = useIntl();

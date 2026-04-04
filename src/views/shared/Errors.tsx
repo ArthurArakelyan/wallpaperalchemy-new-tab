@@ -1,9 +1,10 @@
+import { Icon } from "@iconify/react";
 import * as React from "react";
-import { FormattedMessage, defineMessages, useIntl } from "react-intl";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { ErrorContext } from "../../contexts/error";
 import { formatErrorLog } from "../../errorHandler";
 import Modal from "./modal/Modal";
-import { Icon } from "@iconify/react";
 
 const messages = defineMessages({
   copyErrorLog: {

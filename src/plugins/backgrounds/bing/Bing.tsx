@@ -1,8 +1,10 @@
+import "./Bing.sass";
+
 import * as React from "react";
+
 import BaseBackground from "../base/BaseBackground";
 import { getImage } from "./api";
 import { defaultData, Props } from "./types";
-import "./Bing.sass";
 
 const Bing: React.FC<Props> = ({
   cache,

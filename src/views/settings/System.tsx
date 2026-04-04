@@ -1,10 +1,11 @@
 import * as React from "react";
-import { FormattedMessage, defineMessages, useIntl } from "react-intl";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { db, FaviconMode } from "../../db/state";
-import { useKey } from "../../lib/db/react";
-import TimeZoneInput from "../shared/timeZone/TimeZoneInput";
 import { useSystemTheme } from "../../hooks";
+import { useKey } from "../../lib/db/react";
 import { Icon, IconButton } from "../shared";
+import TimeZoneInput from "../shared/timeZone/TimeZoneInput";
 
 const messages = defineMessages({
   faviconErrorSize: {

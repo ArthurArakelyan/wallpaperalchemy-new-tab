@@ -1,7 +1,9 @@
+import "./Quote.sass";
+
 import * as React from "react";
+
 import { useCachedEffect } from "../../../hooks";
 import { getQuote } from "./api";
-import "./Quote.sass";
 import { defaultData, Props } from "./types";
 
 const Quote: React.FC<Props> = ({

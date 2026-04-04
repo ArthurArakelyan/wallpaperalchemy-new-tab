@@ -1,5 +1,7 @@
-import * as React from "react";
 import "./Logo.sass";
+
+import * as React from "react";
+
 import tablissLogo from "./tabliss.svg";
 
 const Logo: React.FC = () => (

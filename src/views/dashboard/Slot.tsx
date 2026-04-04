@@ -1,8 +1,10 @@
+import "./Slot.sass";
+
 import * as React from "react";
+
 import { WidgetPosition, WidgetState } from "../../db/state";
 import { getConfig } from "../../plugins";
 import Plugin from "../shared/Plugin";
-import "./Slot.sass";
 import Widget from "./Widget";
 
 type Props = {

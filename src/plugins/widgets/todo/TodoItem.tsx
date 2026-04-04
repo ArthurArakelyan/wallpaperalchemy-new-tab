@@ -1,10 +1,11 @@
+import "./TodoItem.sass";
+
 import { FC, useLayoutEffect, useRef, useState } from "react";
 import * as React from "react";
 
 import { useKeyPress } from "../../../hooks";
 import { Icon, RemoveIcon } from "../../../views/shared";
 import { State } from "./reducer";
-import "./TodoItem.sass";
 
 interface Props {
   item: State[number];

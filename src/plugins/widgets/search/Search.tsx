@@ -1,18 +1,20 @@
+import "./Search.sass";
+
+import { Icon } from "@iconify/react";
 import { FC, useRef, useState } from "react";
 import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
-import { Icon } from "@iconify/react";
+
 import { useKeyPress } from "../../../hooks";
+import { isSpecialUrl } from "../../../utils";
 import {
   getSuggestions,
   getWikipediaSuggestions,
   WikipediaSuggestionResult,
 } from "./getSuggestions";
 import Suggestions from "./Suggestions";
-import { Props, defaultData } from "./types";
+import { defaultData, Props } from "./types";
 import { buildUrl, getSearchUrl, getSuggestUrl } from "./utils";
-import { isSpecialUrl } from "../../../utils";
-import "./Search.sass";
 
 export const messages = defineMessages({
   placeholder: {

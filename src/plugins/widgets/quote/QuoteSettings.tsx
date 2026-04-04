@@ -1,9 +1,10 @@
 import * as React from "react";
 // import categories from "./categories";
 import { FormattedMessage } from "react-intl";
+
 import { pluginMessages, timingMessages } from "../../../locales/messages";
-import { MINUTES, HOURS } from "../../../utils";
-import { Props, defaultData } from "./types";
+import { HOURS, MINUTES } from "../../../utils";
+import { defaultData, Props } from "./types";
 
 const QuoteSettings: React.FC<Props> = ({ data = defaultData, setData }) => (
   <div className="QuoteSettings">

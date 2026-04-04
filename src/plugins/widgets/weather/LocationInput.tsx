@@ -1,9 +1,11 @@
-import * as React from "react";
-import { FormattedMessage, defineMessages, useIntl } from "react-intl";
-import { useToggle } from "../../../hooks";
-import { Icon } from "@iconify/react";
-import { geocodeLocation, requestLocation } from "./api";
 import "./LocationInput.sass";
+
+import { Icon } from "@iconify/react";
+import * as React from "react";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
+import { useToggle } from "../../../hooks";
+import { geocodeLocation, requestLocation } from "./api";
 import { Coordinates } from "./types";
 
 const messages = defineMessages({

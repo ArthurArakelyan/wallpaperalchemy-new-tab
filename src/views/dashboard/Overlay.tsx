@@ -1,13 +1,15 @@
+import "./Overlay.sass";
+
+import { Icon } from "@iconify/react";
 import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
+
 import { ErrorContext } from "../../contexts/error";
 import { UiContext } from "../../contexts/ui";
 import { toggleFocus } from "../../db/action";
 import { db } from "../../db/state";
 import { useFullscreen, useKeyPress } from "../../hooks";
-import { useValue, useKey } from "../../lib/db/react";
-import { Icon } from "@iconify/react";
-import "./Overlay.sass";
+import { useKey, useValue } from "../../lib/db/react";
 
 const messages = defineMessages({
   settingsHint: {

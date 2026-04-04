@@ -1,10 +1,12 @@
+import "./Bing.sass";
+
+import { format } from "date-fns";
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
+import { backgroundMessages } from "../../../locales/messages";
 import { DebounceInput } from "../../shared";
 import { Data, defaultData, Props } from "./types";
-import { format } from "date-fns";
-import { backgroundMessages } from "../../../locales/messages";
-import "./Bing.sass";
 
 const getMaxDate = () => format(new Date(), "yyyy-MM-dd");
 

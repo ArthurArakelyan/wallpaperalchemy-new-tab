@@ -20,14 +20,14 @@ import palette from "./palette";
 import quote from "./quote";
 import search from "./search";
 import since from "./since";
+import tallyCounter from "./tallyCounter";
 import time from "./time";
+import timeTracker from "./timeTracker";
 import todo from "./todo";
 import topSites from "./topSites";
+import trello from "./trello";
 import weather from "./weather";
 import workHours from "./workHours";
-import timeTracker from "./timeTracker";
-import trello from "./trello";
-import tallyCounter from "./tallyCounter";
 
 export const widgetConfigs = [
   // nba,

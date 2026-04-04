@@ -1,9 +1,10 @@
+import "./TodoList.sass";
+
 import { FC, useRef, useState } from "react";
 import * as React from "react";
 
 import { State } from "./reducer";
 import TodoItem from "./TodoItem";
-import "./TodoList.sass";
 
 interface Props {
   items: State;

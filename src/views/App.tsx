@@ -1,16 +1,17 @@
 import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
+
 import { usePushError } from "../api";
 import { UiContext } from "../contexts/ui";
 import { migrate } from "../db/migrate";
-import { cacheStorage, dbStorage, db } from "../db/state";
+import { cacheStorage, db, dbStorage } from "../db/state";
+import { useFavicon, useSystemTheme } from "../hooks";
 import { Stream } from "../lib";
 import { useValue } from "../lib/db/react";
 import Dashboard from "./dashboard";
 import { Settings } from "./settings";
 import Errors from "./shared/Errors";
 import StoreError from "./shared/StoreError";
-import { useSystemTheme, useFavicon } from "../hooks";
 
 function setHighlighting() {
   const checked = db.cache.get("highlightingEnabled");

@@ -1,10 +1,11 @@
-import * as React from "react";
 import { format } from "date-fns";
-import { defaultData, Props } from "./types";
-import { getPicture } from "./api";
-import BaseBackground from "../base/BaseBackground";
+import * as React from "react";
+
 import { db } from "../../../db/state";
 import { useValue } from "../../../lib/db/react";
+import BaseBackground from "../base/BaseBackground";
+import { getPicture } from "./api";
+import { defaultData, Props } from "./types";
 
 const isDirectVideo = (url: string) => /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
 

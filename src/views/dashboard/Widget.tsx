@@ -1,13 +1,14 @@
-import * as React from "react";
-import { WidgetDisplay, db } from "../../db/state";
-import { setWidgetDisplay } from "../../db/action";
-import { useKey } from "../../lib/db/react";
 import { Icon } from "@iconify/react";
+import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
+import { setWidgetDisplay } from "../../db/action";
+import { db, WidgetDisplay } from "../../db/state";
+import { useKey } from "../../lib/db/react";
 import { pluginMessages } from "../../locales/messages";
+import { parseFontFamilyAndFeatures } from "../../utils";
 import FloatingButton from "../shared/FloatingButton";
 import MoveableWrapper from "./MoveableWrapper";
-import { parseFontFamilyAndFeatures } from "../../utils";
 
 interface WidgetProps extends WidgetDisplay {
   id: string;

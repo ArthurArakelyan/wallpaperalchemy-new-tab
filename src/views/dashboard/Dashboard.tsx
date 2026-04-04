@@ -1,9 +1,11 @@
+import "./Dashboard.sass";
+
 import * as React from "react";
+
+import { db } from "../../db/state";
 import { useTheme } from "../../hooks";
 import { useKey } from "../../lib/db/react";
-import { db } from "../../db/state";
 import Background from "./Background";
-import "./Dashboard.sass";
 import Overlay from "./Overlay";
 import Widgets from "./Widgets";
 

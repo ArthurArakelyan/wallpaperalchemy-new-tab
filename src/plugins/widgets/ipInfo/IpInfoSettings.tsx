@@ -1,5 +1,6 @@
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
 import { defaultData, Props } from "./types";
 
 const IpInfoSettings: React.FC<Props> = ({ data = defaultData, setData }) => (

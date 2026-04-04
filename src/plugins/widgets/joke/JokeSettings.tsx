@@ -1,9 +1,10 @@
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
-import { MINUTES, HOURS } from "../../../utils";
-import categories from "./categories";
-import { Props, defaultData, JokeAPICategory } from "./types";
+
 import { pluginMessages, timingMessages } from "../../../locales/messages";
+import { HOURS, MINUTES } from "../../../utils";
+import categories from "./categories";
+import { defaultData, JokeAPICategory, Props } from "./types";
 
 function updateSelectedCategories(
   existingCategories: JokeAPICategory[],

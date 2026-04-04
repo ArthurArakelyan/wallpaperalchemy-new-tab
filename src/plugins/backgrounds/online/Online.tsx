@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import BaseBackground from "../base/BaseBackground";
 import { defaultData, Props } from "./types";
 

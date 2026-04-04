@@ -1,9 +1,10 @@
+import { Icon } from "@iconify/react";
 import { FC, useMemo } from "react";
 import * as React from "react";
 import { defineMessages, useIntl } from "react-intl";
-import { Icon } from "@iconify/react";
-import { Link, Cache } from "./types";
+
 import { isSpecialUrl, normalizeUrl } from "../../../utils";
+import { Cache, Link } from "./types";
 
 const getDomain = (url: string): string | null => {
   try {

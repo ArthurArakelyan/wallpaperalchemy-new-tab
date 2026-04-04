@@ -1,9 +1,11 @@
+import "./Notes.sass";
+
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+
+import { Icon, IconButton } from "../../../views/shared";
 import { API } from "../../types";
 import { Data, defaultData } from "./data";
-import { Icon, IconButton } from "../../../views/shared";
-import "./Notes.sass";
 
 const alignments = [
   {

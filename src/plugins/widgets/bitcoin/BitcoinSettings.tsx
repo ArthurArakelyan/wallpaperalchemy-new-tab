@@ -1,7 +1,8 @@
 import * as React from "react";
-import { FormattedMessage, defineMessages, useIntl } from "react-intl";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { capitalize } from "../../../utils";
-import { defaultData, Data, Props } from "./types";
+import { Data, defaultData, Props } from "./types";
 
 const messages = defineMessages({
   colorMempool: {

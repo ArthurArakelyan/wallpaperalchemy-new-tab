@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Props, defaultData } from "./types";
+import { defaultData, Props } from "./types";
 
 const Css: React.FC<Props> = ({ data = defaultData }) => {
   React.useLayoutEffect(() => {

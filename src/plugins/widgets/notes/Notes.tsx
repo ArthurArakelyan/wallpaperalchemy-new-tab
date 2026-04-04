@@ -1,12 +1,14 @@
+import "./Notes.sass";
+
+import { Icon } from "@iconify/react";
 import * as React from "react";
+import { FormattedMessage } from "react-intl";
+import ReactMarkdown from "react-markdown";
+
+import { useKeyPress } from "../../../hooks";
 import { API } from "../../types";
 import { Data, defaultData } from "./data";
 import Input from "./Input";
-import ReactMarkdown from "react-markdown";
-import { Icon } from "@iconify/react";
-import { FormattedMessage } from "react-intl";
-import { useKeyPress } from "../../../hooks";
-import "./Notes.sass";
 
 const Notes: React.FC<API<Data>> = ({ data = defaultData, setData }) => {
   const [isEditing, setIsEditing] = React.useState(false);

@@ -1,6 +1,7 @@
 import * as React from "react";
-import Modal from "./modal/Modal";
 import { FormattedMessage } from "react-intl";
+
+import Modal from "./modal/Modal";
 
 type Props = {
   onClose: () => void;

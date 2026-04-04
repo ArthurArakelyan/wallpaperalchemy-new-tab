@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import * as React from "react";
-import { defaultData, Props, Data } from "./types";
+
+import { Data, defaultData, Props } from "./types";
 import { BookmarkTreeNode } from "./types";
 
 const BookmarksSettings: FC<Props> = ({ data = defaultData, setData }) => {

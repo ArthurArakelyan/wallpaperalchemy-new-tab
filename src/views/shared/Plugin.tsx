@@ -1,5 +1,6 @@
 import * as React from "react";
 import { withErrorBoundary } from "react-error-boundary";
+
 import { capture as captureException } from "../../errorHandler";
 import { useApi } from "../../hooks";
 import { API } from "../../plugins";

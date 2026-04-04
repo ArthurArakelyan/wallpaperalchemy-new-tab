@@ -1,17 +1,19 @@
-import { useState, useEffect } from "react";
+import "./Joke.sass";
+
+import { useEffect, useState } from "react";
 import * as React from "react";
-import { useCachedEffect, useKeyPress } from "../../../hooks";
+
 import { db } from "../../../db/state";
+import { useCachedEffect, useKeyPress } from "../../../hooks";
 import { useValue } from "../../../lib/db/react";
 import { getJoke } from "./api";
-import "./Joke.sass";
 import {
   defaultData,
-  Props,
+  isJokeError,
   isSingleJoke,
   isTwoPartJoke,
+  Props,
   TwoPartJokeAPIResponse,
-  isJokeError,
 } from "./types";
 
 const Joke: React.FC<Props> = ({

@@ -1,5 +1,6 @@
-import * as React from "react";
 import "./Modal.sass";
+
+import * as React from "react";
 
 type Props = {
   children: React.ReactNode;

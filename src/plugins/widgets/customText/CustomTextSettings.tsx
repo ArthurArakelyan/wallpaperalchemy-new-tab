@@ -1,9 +1,10 @@
+import { Icon } from "@iconify/react";
 import { FC } from "react";
 import * as React from "react";
-import { Icon } from "@iconify/react";
 import { FormattedMessage } from "react-intl";
-import { Props, defaultData } from "./types";
+
 import { timingMessages } from "../../../locales/messages";
+import { defaultData, Props } from "./types";
 
 const CustomTextSettings: FC<Props> = ({ data = defaultData, setData }) => {
   const handleTimeoutChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

@@ -1,9 +1,10 @@
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
-import { buildLink, fetchImages } from "./api";
-import { defaultData, Image as UnsplashImage, Props } from "./types";
+
 import { useBackgroundRotation } from "../../../hooks";
 import BaseBackground from "../base/BaseBackground";
+import { buildLink, fetchImages } from "./api";
+import { defaultData, Image as UnsplashImage, Props } from "./types";
 
 const UTM = "?utm_source=Start&utm_medium=referral&utm_campaign=api-credit";
 
