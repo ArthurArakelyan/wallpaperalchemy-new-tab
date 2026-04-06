@@ -479,8 +479,8 @@ const System: FC = () => {
         <span>
           <FormattedMessage
             id="settings.hideIcon"
-            defaultMessage="Hide Settings Icon"
-            description="Hide settings icon toggle label"
+            defaultMessage="Hide Settings Toolbar"
+            description="Hide settings toolbar toggle label"
           />
         </span>
         <input

@@ -19,7 +19,7 @@ export interface State {
   timeZone: string | null;
   /** Whether highlighting is enabled */
   highlightingEnabled: boolean;
-  /** Whether the settings icon is hidden */
+  /** Whether the overlay bar is hidden */
   hideSettingsIcon: boolean;
   /** Position of the settings icon */
   settingsIconPosition: "topRight" | "topLeft" | "bottomRight" | "bottomLeft";

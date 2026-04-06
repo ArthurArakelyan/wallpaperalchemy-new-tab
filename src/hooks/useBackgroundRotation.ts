@@ -46,13 +46,20 @@ export function useBackgroundRotation<
       if (!nextUrl) return;
       const img = new Image();
       img.src = nextUrl;
-      const onFinish = () => loader.pop();
+      loader.push();
+      let popped = false;
+      const onFinish = () => {
+        if (!popped) {
+          popped = true;
+          loader.pop();
+        }
+      };
       img.onload = onFinish;
       img.onerror = onFinish;
-      loader.push();
       return () => {
         img.onload = null;
         img.onerror = null;
+        onFinish();
       };
     }
   }, [cacheObj.cache]);
