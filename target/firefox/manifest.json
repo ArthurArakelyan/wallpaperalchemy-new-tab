@@ -5,7 +5,7 @@
   "description": "A beautiful, customizable New Tab page with backgrounds and widgets.",
   "browser_specific_settings": {
     "gecko": {
-      "id": "extension@tabliss-maintained",
+      "id": "new-tab@wallpaperalchemy",
       "strict_min_version": "58.0"
     }
   },
