@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "TablissNG",
+  "name": "Wallpaper Alchemy – New Tab",
   "version": "PLACEHOLDER",
-  "description": "A beautiful, customizable New Tab page with various backgrounds and widgets. This is an actively maintained fork of the original Tabliss, with merged community contributions and ongoing updates.",
+  "description": "A beautiful, customizable New Tab page with backgrounds and widgets.",
   "browser_specific_settings": {
     "gecko": {
       "id": "extension@tabliss-maintained",

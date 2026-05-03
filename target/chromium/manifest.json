@@ -1,9 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "TablissNG",
+  "name": "Wallpaper Alchemy – New Tab",
   "version": "PLACEHOLDER",
-  "description": "A beautiful, customizable New Tab page with backgrounds and widgets. This is a maintained fork with ongoing updates in the future.",
-  "homepage_url": "https://github.com/BookCatKid/TablissNG",
+  "description": "A beautiful, customizable New Tab page with backgrounds and widgets.",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
