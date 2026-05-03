@@ -2,8 +2,7 @@ import "./Settings.sass";
 
 import { Icon } from "@iconify/react";
 import { useEffect, useRef, useState } from "react";
-import { type FC, memo, useContext, useMemo } from "react";
-import GitHubButton from "react-github-btn";
+import { type FC, memo, useContext } from "react";
 import { defineMessages, FormattedMessage, useIntl } from "react-intl";
 
 import { UiContext } from "../../contexts/ui";
@@ -217,110 +216,9 @@ const Settings: FC = () => {
             }}
           />
         </p>
+
         {/* Only relevant for the web build where IndexedDB may be evicted. Hide for extension builds to avoid confusing prompts in Firefox/Chromium. */}
         {BUILD_TARGET === "web" && <Persist />}
-
-        <div style={{ textAlign: "center" }} className="Widget">
-          <h4>
-            <FormattedMessage
-              id="support"
-              defaultMessage="Support TablissNG"
-              description="Support TablissNG button text"
-            />
-          </h4>
-
-          {useMemo(
-            () => (
-              <div
-                style={{
-                  marginTop: "14px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "14px",
-                  width: "100%",
-                }}
-              >
-                <div style={{ width: "100%" }}>
-                  <GitHubButton
-                    href="https://github.com/BookCatKid/tablissNG"
-                    data-icon="octicon-repo"
-                    data-size="large"
-                    data-show-count="false"
-                    data-color-scheme={isDark ? "dark" : "light"}
-                    aria-label={intl.formatMessage(messages.ariaRepo)}
-                  >
-                    <span
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "0.4rem",
-                        width: "100%",
-                      }}
-                    >
-                      <Icon icon="feather:code" />{" "}
-                      <FormattedMessage
-                        id="settings.support.contribute"
-                        defaultMessage="Contribute to the project!"
-                        description="Call to action to contribute to the project"
-                      />
-                    </span>
-                  </GitHubButton>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    width: "100%",
-                  }}
-                >
-                  <div style={{ flex: 1 }}>
-                    <GitHubButton
-                      href="https://github.com/BookCatKid/tablissNG/subscription"
-                      data-icon="octicon-eye"
-                      data-size="large"
-                      data-show-count="true"
-                      data-color-scheme={isDark ? "dark" : "light"}
-                      aria-label={intl.formatMessage(messages.ariaWatch)}
-                    >
-                      <FormattedMessage
-                        id="settings.github.watch"
-                        defaultMessage="Watch"
-                        description="GitHub Watch button text"
-                      />
-                    </GitHubButton>
-                  </div>
-
-                  <div style={{ flex: 1 }}>
-                    <GitHubButton
-                      href="https://github.com/BookCatKid/tablissNG"
-                      data-icon="octicon-star"
-                      data-size="large"
-                      data-show-count="true"
-                      data-color-scheme={isDark ? "dark" : "light"}
-                      aria-label={intl.formatMessage(messages.ariaStar)}
-                    >
-                      <FormattedMessage
-                        id="settings.github.star"
-                        defaultMessage="Star"
-                        description="GitHub Star button text"
-                      />
-                    </GitHubButton>
-                  </div>
-                </div>
-              </div>
-            ),
-            [isDark],
-          )}
-        </div>
-
-        <FormattedMessage
-          id="settings.translationCredits"
-          description="Give yourself some credit :)"
-          defaultMessage=" "
-          tagName="p"
-        />
       </div>
 
       {showScrollTop && (
