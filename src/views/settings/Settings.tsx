@@ -176,36 +176,13 @@ const Settings: FC = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <Logo />
-        <div
-          style={{
-            textAlign: "center",
-            margin: "-0.5rem 0 1rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
-        >
-          <span
-            style={{
-              background: "var(--bg-input)",
-              padding: "0.3rem 0.8rem",
-              borderRadius: "1rem",
-              fontSize: "0.9rem",
-              color: "var(--text-main)",
-              fontWeight: 500,
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.3rem",
-            }}
-          >
-            <Icon icon="feather:tag" style={{ fontSize: "0.9em" }} />
-            TablissNG v{VERSION} {DEV ? "DEV " : ""}
-          </span>
-        </div>
+
         <Background />
+
         <Widgets />
+
         <System />
+
         <p style={{ marginBottom: "2rem" }}>
           <FormattedMessage
             {...messages.settingsImportExportReset}
