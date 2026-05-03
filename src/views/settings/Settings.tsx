@@ -97,8 +97,8 @@ const Settings: FC = () => {
     document.body.appendChild(a);
     a.style.display = "none";
     a.href = url;
-    a.download = "tablissng.json";
-    a.download = "tablissng.json";
+    a.download = "wallpaperalchemy-new-tab.json";
+    a.download = "wallpaperalchemy-new-tab.json";
     a.click();
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
