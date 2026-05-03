@@ -1,4 +1,4 @@
-const { execFileSync } = require("child_process");
+const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
@@ -101,7 +101,7 @@ function validateMessageObject(obj, filename) {
 }
 
 function runFormatjs(args) {
-  return execFileSync("pnpm", ["exec", "formatjs", ...args], {
+  return execSync(`pnpm exec formatjs ${args.join(" ")}`, {
     cwd: rootDir,
     stdio: "inherit",
   });
@@ -109,7 +109,7 @@ function runFormatjs(args) {
 
 function assertFormatjsInstalled() {
   try {
-    execFileSync("pnpm", ["exec", "formatjs", "--version"], {
+    execSync("pnpm exec formatjs --version", {
       cwd: rootDir,
       stdio: "pipe",
     });
