@@ -17,11 +17,12 @@
   ],
   "scripts": {
     "build": "pnpm run build:web",
-    "build:prepare": "pnpm run translations compile",
+    "build:prepare": "pnpm run translations compile && pnpm run locales:generate",
     "build:chromium": "pnpm run build:prepare && cross-env NODE_ENV=production BUILD_TARGET=chromium rspack",
     "build:firefox": "pnpm run build:prepare && cross-env NODE_ENV=production BUILD_TARGET=firefox rspack",
     "build:safari": "pnpm run build:prepare && cross-env NODE_ENV=production BUILD_TARGET=safari rspack",
     "build:web": "pnpm run build:prepare && cross-env NODE_ENV=production BUILD_TARGET=web rspack",
+    "locales:generate": "node ./scripts/generate-extension-locales.js",
     "dev": "pnpm run dev:web",
     "dev:chromium": "cross-env BUILD_TARGET=chromium rspack --watch",
     "dev:firefox": "cross-env BUILD_TARGET=firefox rspack --watch",
