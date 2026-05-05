@@ -128,8 +128,8 @@ export type WidgetPosition =
 // Init data for the store
 const initData: State = {
   background: {
-    id: "default-colour",
-    key: "background/colour",
+    id: "default-wallpaperAlchemyMostPopularWallpapers",
+    key: "background/wallpaperAlchemyMostPopularWallpapers",
     display: {
       luminosity: -0.2,
       blur: 0,
