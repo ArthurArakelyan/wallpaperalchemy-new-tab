@@ -1,0 +1,46 @@
+.wallpaper-alchemy-loader-wrapper
+  display: inline-block
+  color: #2374e9
+  animation: wallpaper-alchemy-rotate 1.3s linear infinite !important
+
+  &--small
+    width: 1.714rem
+    height: 1.714rem
+
+  &--normal
+    width: 2.857rem
+    height: 2.857rem
+
+  &--large
+    width: 4.571rem
+    height: 4.571rem
+
+.wallpaper-alchemy-loader
+  display: block
+  color: currentcolor
+
+.wallpaper-alchemy-loader__circle
+  stroke: currentcolor
+  stroke-dasharray: 80px, 200px
+  stroke-dashoffset: 0
+  animation: wallpaper-alchemy-rotate-circle 1.4s ease-in-out infinite !important
+
+@keyframes wallpaper-alchemy-rotate
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
+@keyframes wallpaper-alchemy-rotate-circle
+  0%
+    stroke-dasharray: 1px, 200px
+    stroke-dashoffset: 0
+
+  50%
+    stroke-dasharray: 100px, 200px
+    stroke-dashoffset: -15px
+
+  100%
+    stroke-dasharray: 100px, 200px
+    stroke-dashoffset: -125px

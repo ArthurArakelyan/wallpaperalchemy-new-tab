@@ -218,6 +218,24 @@ export const backgroundMessages = defineMessages({
     defaultMessage: "Search Term",
     description: "Label for background search term input",
   },
+  // TODO: translations
+  tryAgain: {
+    id: "backgrounds.tryAgain",
+    defaultMessage: "Try Again",
+    description: "Try Againt",
+  },
+  // TODO: translations
+  wallpaperAlchemyDefaultErrorMessage: {
+    id: "backgrounds.wallpaperAlchemyDefaultErrorMessage",
+    defaultMessage: "Something went wrong",
+    description: "Label for errors",
+  },
+  // TODO: translations
+  wallpaperAlchemyTagsMessage: {
+    id: "backgrounds.wallpaperAlchemyTagsMessage",
+    defaultMessage: "Please select a tag from the list below",
+    description: "Label categories",
+  },
 });
 
 export const commonMessages = defineMessages({

@@ -1,0 +1,118 @@
+.tagsSection
+  width: 100%
+
+  .tagsTitle
+    display: flex
+    color: var(--text-main)
+    font-size: 1rem
+    margin-bottom: 1rem
+
+  .tags
+    width: 100%
+    max-height: 50vh
+    overflow-x: hidden
+    overflow-y: auto
+    flex-wrap: wrap
+    gap: 0.5rem
+    display: flex
+    align-items: stretch
+    justify-content: flex-start
+    flex-direction: row
+
+    .tag
+      cursor: pointer
+      width: calc(50% - 0.5rem)
+      border-radius: 1.143rem
+      background: var(--bg-main)
+      padding: 0
+      border: 0
+      transition: transform 150ms ease-out, background 150ms ease-out
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+
+      &--selected
+        background: color-mix(in srgb, #2374e9 20%, transparent)
+        border-color: #2374e9
+
+      &:hover
+        .tagImage,
+        .tagEmptyIcon
+          transform: scale(1.02)
+
+      &:active
+        .tagImage,
+        .tagEmptyIcon
+          transform: scale(1.01)
+
+      .tagImageWrapper
+        width: 100%
+        overflow: hidden
+        border-radius: 1.143rem
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: flex-start
+
+        .tagImage
+          display: block
+          aspect-ratio: 1 / 1
+          width: 100%
+          height: auto
+          background: var(--bg-main)
+          object-fit: cover
+          object-position: center
+          border-radius: 1.143rem
+          transition: transform 150ms ease-out
+
+        .tagEmptyIcon
+          display: block
+          aspect-ratio: 1 / 1
+          width: 100%
+          height: auto
+          color: var(--text-heading)
+          opacity: 0.9
+          padding: 30%
+          border-radius: 1.143rem
+          transition: transform 150ms ease-out
+
+      .tagInfo
+        width: 100%
+        margin-bottom: auto
+        padding: 1.143rem
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: flex-start
+
+        .tagName
+          font-size: 1rem
+          color: var(--text-heading)
+          width: 100%
+          display: -webkit-box
+          -webkit-line-clamp: 1
+          -webkit-box-orient: vertical
+          overflow: hidden
+
+  .tagsError
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    border: 0.143rem solid #f36373
+    background: rgb(255 0 0 / 30%)
+    border-radius: 0.857rem
+    padding: 1.143rem
+    gap: 1.143rem
+
+    .tagsErrorTitle
+      font-size: 1.2rem
+      font-weight: 500
+      color: var(--text-heading)
+
+  .tagsLoading
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center

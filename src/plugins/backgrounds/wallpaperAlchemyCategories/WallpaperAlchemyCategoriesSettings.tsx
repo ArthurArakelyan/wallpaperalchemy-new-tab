@@ -1,0 +1,152 @@
+import { type FC, useEffect, useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+
+import { backgroundMessages } from "../../../locales/messages";
+import { DebounceInput } from "../../shared";
+import CategoryIcon from "../../shared/WallpaperAlchemy/components/Icon/icons/Category";
+import Loader from "../../shared/WallpaperAlchemy/components/Loader";
+import { assertSuccess } from "../../shared/WallpaperAlchemy/helpers/assert";
+import {
+  getTagImage,
+  getTagImageHeight,
+  getTagImageWidth,
+} from "../../shared/WallpaperAlchemy/helpers/tag";
+import { ITag } from "../../shared/WallpaperAlchemy/types";
+import BaseSettings from "../base/BaseSettings";
+import { getTags } from "./api";
+import { defaultData, Props } from "./types";
+
+const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
+  data = defaultData,
+  setData,
+}) => {
+  const selectedTag = data.tag;
+
+  const [tags, setTags] = useState<ITag[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const intl = useIntl();
+
+  const handleGetTags = async () => {
+    try {
+      setLoading(false);
+      setError(null);
+
+      const response = await getTags(intl.locale, {
+        search: data.search?.trim?.() || undefined,
+      });
+
+      assertSuccess(response);
+
+      setTags(response.data.data);
+    } catch (error: any) {
+      console.error(error);
+
+      if (typeof error.message === "string") {
+        setError(error.message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSelectTags = (tag: number) => {
+    setData({ ...data, tag });
+  };
+
+  useEffect(() => {
+    handleGetTags();
+  }, [intl.locale, data.search]);
+
+  return (
+    <div className="WallpaperAlchemyCategoriesSettings">
+      <BaseSettings data={data} setData={setData} />
+
+      <div className="tagsSection">
+        <label>
+          <FormattedMessage {...backgroundMessages.search} />
+          <DebounceInput
+            type="text"
+            value={data.search}
+            placeholder={intl.formatMessage(backgroundMessages.search)}
+            onChange={(value) => setData({ ...data, search: value })}
+            wait={500}
+          />
+        </label>
+
+        {!!tags.length && (
+          <span className="tagsTitle">
+            <FormattedMessage
+              {...backgroundMessages.wallpaperAlchemyTagsMessage}
+            />
+          </span>
+        )}
+
+        {loading && (
+          <div className="tagsLoading">
+            <Loader />
+          </div>
+        )}
+
+        {error && (
+          <div className="tagsError">
+            <span className="tagsErrorTitle">
+              <FormattedMessage
+                {...backgroundMessages.wallpaperAlchemyDefaultErrorMessage}
+              />
+            </span>
+
+            <button
+              type="button"
+              className="button button--primary tagsErrorButton"
+              onClick={handleGetTags}
+            >
+              <FormattedMessage {...backgroundMessages.tryAgain} />
+            </button>
+          </div>
+        )}
+
+        {!!tags.length && (
+          <div className="tags">
+            {tags.map((tag) => {
+              const image = getTagImage(tag);
+
+              const isSelected = tag.id === selectedTag;
+
+              return (
+                <button
+                  key={tag.id}
+                  type="button"
+                  onClick={() => handleSelectTags(tag.id)}
+                  className={`tag ${isSelected ? "tag--selected" : ""}`}
+                >
+                  <div className="tagImageWrapper">
+                    {image ? (
+                      <img
+                        src={image}
+                        alt={tag.title}
+                        width={getTagImageWidth(tag)}
+                        height={getTagImageHeight(tag)}
+                        loading="lazy"
+                        className="tagImage"
+                      />
+                    ) : (
+                      <CategoryIcon className="tagEmptyIcon" />
+                    )}
+                  </div>
+
+                  <div className="tagInfo">
+                    <span className="tagName">{tag.title}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default WallpaperAlchemyCategoriesSettings;
