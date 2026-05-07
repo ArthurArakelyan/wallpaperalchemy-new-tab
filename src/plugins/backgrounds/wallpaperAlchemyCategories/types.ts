@@ -3,7 +3,6 @@ import { API } from "../../types";
 
 export interface Data {
   tag?: number;
-  search?: string;
   paused?: boolean;
   timeout: number;
   showControls: boolean;

@@ -1,4 +1,4 @@
-import { type FC, useEffect, useState } from "react";
+import { type FC, useEffect, useMemo, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 import { backgroundMessages } from "../../../locales/messages";
@@ -25,6 +25,22 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
   const [tags, setTags] = useState<ITag[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [search, setSearch] = useState<string>("");
+
+  const sortedTags = useMemo(() => {
+    if (!tags) return [];
+
+    const result = [];
+
+    let selected = null;
+
+    for (const tag of tags) {
+      if (tag.id === selectedTag) selected = tag;
+      else result.push(tag);
+    }
+
+    return selected ? [selected, ...result] : tags;
+  }, [tags, selectedTag]);
 
   const intl = useIntl();
 
@@ -34,7 +50,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
       setError(null);
 
       const response = await getTags(intl.locale, {
-        search: data.search?.trim?.() || undefined,
+        search: search.trim() || undefined,
       });
 
       assertSuccess(response);
@@ -57,7 +73,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
 
   useEffect(() => {
     handleGetTags();
-  }, [intl.locale, data.search]);
+  }, [intl.locale, search]);
 
   return (
     <div className="WallpaperAlchemyCategoriesSettings">
@@ -68,9 +84,9 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
           <FormattedMessage {...backgroundMessages.search} />
           <DebounceInput
             type="text"
-            value={data.search}
+            value={search}
             placeholder={intl.formatMessage(backgroundMessages.search)}
-            onChange={(value) => setData({ ...data, search: value })}
+            onChange={setSearch}
             wait={500}
           />
         </label>
@@ -107,9 +123,9 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
           </div>
         )}
 
-        {!!tags.length && (
+        {!!sortedTags.length && (
           <div className="tags">
-            {tags.map((tag) => {
+            {sortedTags.map((tag) => {
               const image = getTagImage(tag);
 
               const isSelected = tag.id === selectedTag;
