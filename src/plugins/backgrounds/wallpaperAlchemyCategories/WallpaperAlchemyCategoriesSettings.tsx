@@ -46,7 +46,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
 
   const handleGetTags = async () => {
     try {
-      setLoading(false);
+      setLoading(true);
       setError(null);
 
       const response = await getTags(intl.locale, {
