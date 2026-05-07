@@ -1,3 +1,4 @@
+import { vercelApiUrl } from "../../constants/main";
 import { Locale, QueryType } from "../../types";
 import Service from "../Service";
 import {
@@ -10,10 +11,15 @@ import {
 
 export default class WallpaperService extends Service {
   static getWallpapers(query?: QueryType, locale?: Locale) {
-    return this.request<IGetWallpapersResponseData>("GET", "wallpapers", {
-      query: { ...query, locale },
-      locale,
-    });
+    return this.request<IGetWallpapersResponseData>(
+      "GET",
+      "browser-extension/wallpapers",
+      {
+        query: { ...query, locale },
+        locale,
+        baseUrl: vercelApiUrl,
+      },
+    );
   }
 
   static getWallpaper(id: string | number, locale?: Locale) {

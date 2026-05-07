@@ -1,3 +1,4 @@
+import { vercelApiUrl } from "../../constants/main";
 import { Locale, QueryType } from "../../types";
 import Service from "../Service";
 import {
@@ -8,9 +9,10 @@ import {
 
 export default class TagService extends Service {
   static getTags(query?: QueryType, locale?: Locale) {
-    return this.request<IGetTagsResponseData>("GET", "tags", {
+    return this.request<IGetTagsResponseData>("GET", "browser-extension/tags", {
       query: { ...query, locale },
       locale,
+      baseUrl: vercelApiUrl,
     });
   }
 
