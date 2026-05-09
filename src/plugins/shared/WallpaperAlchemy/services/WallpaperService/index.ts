@@ -23,10 +23,15 @@ export default class WallpaperService extends Service {
   }
 
   static getWallpaper(id: string | number, locale?: Locale) {
-    return this.request<IGetWallpaperResponseData>("GET", `wallpapers/${id}`, {
-      query: { locale },
-      locale,
-    });
+    return this.request<IGetWallpaperResponseData>(
+      "GET",
+      `browser-extension/wallpapers/${id}`,
+      {
+        query: { locale },
+        locale,
+        baseUrl: vercelApiUrl,
+      },
+    );
   }
 
   static getWallpaperLocales(id: string | number) {

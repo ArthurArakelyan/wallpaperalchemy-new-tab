@@ -1,0 +1,114 @@
+.customWallpapersSection
+  width: 100%
+
+  .customWallpapersTitle
+    display: flex
+    color: var(--text-main)
+    font-size: 1rem
+    margin-bottom: 1rem
+
+  .customWallpapersScroll
+    width: 100%
+    max-height: 45vh
+    overflow-x: hidden
+    overflow-y: auto
+    display: flex
+    flex-direction: column
+
+    .customWallpapersScrollSentry
+      height: 0
+
+  .customWallpapers
+    width: 100%
+    flex-wrap: wrap
+    gap: 0.5rem
+    display: flex
+    align-items: stretch
+    justify-content: flex-start
+    flex-direction: row
+
+    .customWallpaper
+      position: relative
+      cursor: pointer
+      width: calc(50% - 0.5rem)
+      border-radius: 0.857rem
+      background: var(--bg-main)
+      padding: 0
+      border: 0
+      transition: transform 150ms ease-out, background 150ms ease-out
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+
+      &--selected
+        .customWallpaperSelected
+          background: color-mix(in srgb, #2374e9 25%, transparent) !important
+
+        .customWallpaperSelectedIcon
+          color: #fff !important
+          transform: scale(1) translateY(0) !important
+
+      .customWallpaperSelected
+        position: absolute
+        z-index: 2
+        border-radius: 0.857rem
+        width: 100%
+        height: 100%
+        background: transparent
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: background 150ms ease-out
+
+        .customWallpaperSelectedIcon
+          width: 1.5rem
+          height: 1.5rem
+          color: transparent
+          transform: scale(0.95) translateY(10px)
+          transition: color 150ms ease-out, transform 150ms ease-out
+
+      .customWallpaperImageWrapper
+        position: relative
+        z-index: 1
+        width: 100%
+        overflow: hidden
+        border-radius: 0.857rem
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: flex-start
+
+        .customWallpaperImage
+          display: block
+          aspect-ratio: 16 / 9
+          width: 100%
+          height: auto
+          background: var(--bg-main)
+          object-fit: cover
+          object-position: center
+          border-radius: 0.857rem
+
+  .customWallpapersError
+    margin-top: 1rem
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    border: 0.143rem solid #f36373
+    background: rgb(255 0 0 / 30%)
+    border-radius: 0.857rem
+    padding: 1.143rem
+    gap: 1.143rem
+
+    .customWallpapersErrorTitle
+      font-size: 1.2rem
+      font-weight: 500
+      color: var(--text-heading)
+
+  .customWallpapersLoading
+    margin-top: 1rem
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center

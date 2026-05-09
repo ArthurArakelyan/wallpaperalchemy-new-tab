@@ -236,6 +236,12 @@ export const backgroundMessages = defineMessages({
     defaultMessage: "Please select a tag from the list below",
     description: "Label categories",
   },
+  // TODO: translations
+  wallpaperAlchemyCustomWallpapersMessage: {
+    id: "backgrounds.wallpaperAlchemyTagsMessage",
+    defaultMessage: "Please select wallpapers from below",
+    description: "Label categories",
+  },
 });
 
 export const commonMessages = defineMessages({

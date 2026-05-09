@@ -101,7 +101,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
 
         {loading && (
           <div className="tagsLoading">
-            <Loader />
+            <Loader size="small" />
           </div>
         )}
 
@@ -115,7 +115,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
 
             <button
               type="button"
-              className="button button--primary tagsErrorButton"
+              className="button button--primary"
               onClick={handleGetTags}
             >
               <FormattedMessage {...backgroundMessages.tryAgain} />

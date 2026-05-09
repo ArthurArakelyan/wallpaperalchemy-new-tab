@@ -1,17 +1,22 @@
+import "./WallpaperAlchemyCustomCollection.sass";
+
 import { type FC, useEffect } from "react";
+import { useIntl } from "react-intl";
 
 import { useBackgroundRotation } from "../../../hooks";
 import BaseBackground from "../base/BaseBackground";
 import { fetchImages } from "./api";
 import { defaultData, Image as WallpaperAlchemyImage, Props } from "./types";
 
-const WallpaperAlchemyMostPopularWallpapers: FC<Props> = ({
+const WallpaperAlchemyCustomCollection: FC<Props> = ({
   cache,
   data = defaultData,
   loader,
   setCache,
   setData,
 }) => {
+  const intl = useIntl();
+
   // If legacy cache design, clear and let the new cache take over
   // Unfortunately, without the image src being stored, I cannot migrate the old cache
   if (cache && "now" in cache) {
@@ -30,12 +35,12 @@ const WallpaperAlchemyMostPopularWallpapers: FC<Props> = ({
   }, []);
 
   const { item, go, handlePause } = useBackgroundRotation({
-    fetch: () => fetchImages(),
+    fetch: () => fetchImages(data.ids, intl.locale),
     cacheObj: { cache, setCache },
     data,
     setData,
     loader,
-    deps: [],
+    deps: [data.ids.join(",")],
     buildUrl: (i: WallpaperAlchemyImage) => i.image,
   });
 
@@ -43,9 +48,9 @@ const WallpaperAlchemyMostPopularWallpapers: FC<Props> = ({
 
   return (
     <BaseBackground
-      containerClassName="WallpaperAlchemyMostPopularWallpapers fullscreen"
+      containerClassName="WallpaperAlchemyCustomCollection fullscreen"
       url={url}
-      showControls={true}
+      showControls={data.ids.length > 1}
       controlsOnHover={!data.showControls}
       paused={data.paused ?? false}
       onPause={handlePause}
@@ -55,4 +60,4 @@ const WallpaperAlchemyMostPopularWallpapers: FC<Props> = ({
   );
 };
 
-export default WallpaperAlchemyMostPopularWallpapers;
+export default WallpaperAlchemyCustomCollection;

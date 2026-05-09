@@ -48,7 +48,7 @@ const WallpaperAlchemyCategories: FC<Props> = ({
 
   return (
     <BaseBackground
-      containerClassName="WallpaperAlchemyMostPopularWallpapers fullscreen"
+      containerClassName="WallpaperAlchemyCategories fullscreen"
       url={url}
       showControls={true}
       controlsOnHover={!data.showControls}

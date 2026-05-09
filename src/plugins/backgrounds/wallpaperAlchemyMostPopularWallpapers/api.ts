@@ -1,10 +1,10 @@
+import { defaultLocale } from "../../shared/WallpaperAlchemy/constants/i18n";
 import { getWallpaperImage } from "../../shared/WallpaperAlchemy/helpers/wallpaper";
 import WallpaperService from "../../shared/WallpaperAlchemy/services/WallpaperService";
-import { intlLocaleToWallpaperAlchemyLocale } from "../../shared/WallpaperAlchemy/utilities/i18n";
 import { cache } from "./cache";
 import { Image } from "./types";
 
-const getWallpapers = async (locale: string) => {
+const getWallpapers = async () => {
   try {
     return await WallpaperService.getWallpapers(
       {
@@ -13,7 +13,7 @@ const getWallpapers = async (locale: string) => {
         sort: "downloads",
         device: "desktop",
       },
-      intlLocaleToWallpaperAlchemyLocale(locale),
+      defaultLocale,
     );
   } catch (error) {
     console.error(error);
@@ -22,8 +22,16 @@ const getWallpapers = async (locale: string) => {
   }
 };
 
-export const fetchImages = async (locale: string): Promise<Image[]> => {
-  const response = await getWallpapers(locale);
+export const fetchImages = async (): Promise<Image[]> => {
+  // TODO: For first launch use cache only, then bring getWallpapers into action
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  // eslint-disable-next-line no-constant-condition
+  if ("a") {
+    return cache;
+  }
+
+  const response = await getWallpapers();
 
   if (!response || !response.success || !response.data.data?.length) {
     console.error("Gracefully fallback to cache", response);
