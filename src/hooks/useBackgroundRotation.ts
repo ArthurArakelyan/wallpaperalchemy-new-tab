@@ -18,6 +18,7 @@ type Options<T, D extends RotationData> = {
   loader?: Loader;
   deps?: unknown[];
   buildUrl?: (item: T) => string | null;
+  shouldFetchMore?: boolean;
 };
 
 export function useBackgroundRotation<
@@ -31,6 +32,7 @@ export function useBackgroundRotation<
   loader,
   deps = [],
   buildUrl,
+  shouldFetchMore = true,
 }: Options<T, D>) {
   const timeout = data
     ? data.paused
@@ -38,7 +40,13 @@ export function useBackgroundRotation<
       : (data.timeout ?? 0) * 1000
     : 0;
 
-  const item = useRotatingCache<T>(fetch, cacheObj, timeout, deps);
+  const item = useRotatingCache<T>(
+    fetch,
+    cacheObj,
+    timeout,
+    deps,
+    shouldFetchMore,
+  );
 
   // Preload next item when available
   useEffect(() => {

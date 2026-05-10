@@ -1,6 +1,6 @@
 import "./WallpaperAlchemyCustomCollection.sass";
 
-import { type FC, useEffect } from "react";
+import { type FC } from "react";
 import { useIntl } from "react-intl";
 
 import { useBackgroundRotation } from "../../../hooks";
@@ -17,23 +17,6 @@ const WallpaperAlchemyCustomCollection: FC<Props> = ({
 }) => {
   const intl = useIntl();
 
-  // If legacy cache design, clear and let the new cache take over
-  // Unfortunately, without the image src being stored, I cannot migrate the old cache
-  if (cache && "now" in cache) {
-    cache = undefined;
-  }
-
-  // Migrate old pause setting
-  useEffect(() => {
-    if (data.timeout === Number.MAX_SAFE_INTEGER) {
-      setData({
-        ...data,
-        paused: true,
-        timeout: defaultData.timeout,
-      });
-    }
-  }, []);
-
   const { item, go, handlePause } = useBackgroundRotation({
     fetch: () => fetchImages(data.ids, intl.locale),
     cacheObj: { cache, setCache },
@@ -42,6 +25,7 @@ const WallpaperAlchemyCustomCollection: FC<Props> = ({
     loader,
     deps: [data.ids.join(",")],
     buildUrl: (i: WallpaperAlchemyImage) => i.image,
+    shouldFetchMore: false,
   });
 
   const url = item?.image || null;

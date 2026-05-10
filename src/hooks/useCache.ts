@@ -43,6 +43,7 @@ export function useRotatingCache<T>(
   { cache, setCache }: Cache<RotatingCache<T>>,
   timeout: number,
   deps: unknown[],
+  shouldFetchMore: boolean,
 ): T | undefined {
   const isValidCache =
     !!cache &&
@@ -71,6 +72,7 @@ export function useRotatingCache<T>(
   // Fetch more when cursor reaches end
   useEffect(() => {
     if (
+      shouldFetchMore &&
       isValidCache &&
       Array.isArray(cache.items) &&
       cursor >= cache.items.length - 1
@@ -91,7 +93,7 @@ export function useRotatingCache<T>(
         });
       });
     }
-  }, [cursor]);
+  }, [shouldFetchMore, cursor]);
 
   // Refresh of deps change
   useEffect(() => {

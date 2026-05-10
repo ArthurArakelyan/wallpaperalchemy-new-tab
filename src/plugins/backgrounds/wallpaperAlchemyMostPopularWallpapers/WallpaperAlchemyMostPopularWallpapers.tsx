@@ -1,4 +1,4 @@
-import { type FC, useEffect } from "react";
+import { type FC } from "react";
 
 import { useBackgroundRotation } from "../../../hooks";
 import BaseBackground from "../base/BaseBackground";
@@ -12,23 +12,6 @@ const WallpaperAlchemyMostPopularWallpapers: FC<Props> = ({
   setCache,
   setData,
 }) => {
-  // If legacy cache design, clear and let the new cache take over
-  // Unfortunately, without the image src being stored, I cannot migrate the old cache
-  if (cache && "now" in cache) {
-    cache = undefined;
-  }
-
-  // Migrate old pause setting
-  useEffect(() => {
-    if (data.timeout === Number.MAX_SAFE_INTEGER) {
-      setData({
-        ...data,
-        paused: true,
-        timeout: defaultData.timeout,
-      });
-    }
-  }, []);
-
   const { item, go, handlePause } = useBackgroundRotation({
     fetch: () => fetchImages(),
     cacheObj: { cache, setCache },
@@ -37,6 +20,7 @@ const WallpaperAlchemyMostPopularWallpapers: FC<Props> = ({
     loader,
     deps: [],
     buildUrl: (i: WallpaperAlchemyImage) => i.image,
+    shouldFetchMore: false,
   });
 
   const url = item?.image || null;

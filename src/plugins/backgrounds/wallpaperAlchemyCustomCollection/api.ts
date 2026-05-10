@@ -39,6 +39,10 @@ export const fetchImages = async (
   ids: number[],
   locale: string,
 ): Promise<Image[]> => {
+  if (!ids.length) {
+    return [];
+  }
+
   const responses = await getWallpapersByIds(ids, locale);
 
   // TODO: Delete if 404
@@ -54,6 +58,7 @@ export const fetchImages = async (
   }
 
   return responses.map((response) => ({
+    id: response.data.id,
     image: getWallpaperImage(response.data),
   }));
 };

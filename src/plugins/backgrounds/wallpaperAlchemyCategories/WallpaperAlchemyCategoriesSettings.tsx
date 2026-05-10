@@ -1,4 +1,4 @@
-import { type FC, useEffect, useMemo, useState } from "react";
+import { type FC, useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 import { backgroundMessages } from "../../../locales/messages";
@@ -27,7 +27,9 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState<string>("");
 
-  const sortedTags = useMemo(() => {
+  const intl = useIntl();
+
+  const handleSortTags = (tags: ITag[]) => {
     if (!tags) return [];
 
     const result = [];
@@ -40,9 +42,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
     }
 
     return selected ? [selected, ...result] : tags;
-  }, [tags, selectedTag]);
-
-  const intl = useIntl();
+  };
 
   const handleGetTags = async () => {
     try {
@@ -55,7 +55,7 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
 
       assertSuccess(response);
 
-      setTags(response.data.data);
+      setTags(handleSortTags(response.data.data));
     } catch (error: any) {
       console.error(error);
 
@@ -123,9 +123,9 @@ const WallpaperAlchemyCategoriesSettings: FC<Props> = ({
           </div>
         )}
 
-        {!!sortedTags.length && (
+        {!!tags.length && (
           <div className="tags">
-            {sortedTags.map((tag) => {
+            {tags.map((tag) => {
               const image = getTagImage(tag);
 
               const isSelected = tag.id === selectedTag;

@@ -3,11 +3,12 @@ import { FC } from "react";
 import CheckIcon from "../../shared/WallpaperAlchemy/components/Icon/icons/Check";
 import { getWallpaperCardImage } from "../../shared/WallpaperAlchemy/helpers/wallpaper";
 import { IWallpaper } from "../../shared/WallpaperAlchemy/types";
+import { Image } from "./types";
 
 type Props = {
-  wallpaper: IWallpaper;
+  wallpaper: IWallpaper | Image;
   isSelected: boolean;
-  onSelect: (wallpaper: IWallpaper) => any;
+  onSelect: (wallpaper: IWallpaper | Image) => any;
 };
 
 const WallpaperAlchemyCustomCollectionSettingsCard: FC<Props> = ({
@@ -15,7 +16,8 @@ const WallpaperAlchemyCustomCollectionSettingsCard: FC<Props> = ({
   isSelected,
   onSelect,
 }) => {
-  const cardImage = getWallpaperCardImage(wallpaper);
+  const cardImage =
+    "name" in wallpaper ? getWallpaperCardImage(wallpaper) : wallpaper.image;
 
   return (
     <button
@@ -31,9 +33,9 @@ const WallpaperAlchemyCustomCollectionSettingsCard: FC<Props> = ({
         <img
           draggable={false}
           src={cardImage}
-          alt={wallpaper.name}
-          width={wallpaper.width}
-          height={wallpaper.height}
+          alt={(wallpaper as IWallpaper).name || undefined}
+          width={(wallpaper as IWallpaper).width || undefined}
+          height={(wallpaper as IWallpaper).height || undefined}
           loading="lazy"
           className="customWallpaperImage"
         />

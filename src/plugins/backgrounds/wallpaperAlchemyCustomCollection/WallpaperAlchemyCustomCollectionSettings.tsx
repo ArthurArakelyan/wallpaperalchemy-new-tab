@@ -1,4 +1,4 @@
-import { type FC, useEffect, useMemo, useState } from "react";
+import { type FC, useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 import { backgroundMessages } from "../../../locales/messages";
@@ -8,15 +8,17 @@ import { wallpapersPaginationPageSize } from "../../shared/WallpaperAlchemy/cons
 import { uniqueById } from "../../shared/WallpaperAlchemy/helpers/array";
 import { assertSuccess } from "../../shared/WallpaperAlchemy/helpers/assert";
 import useInfiniteScroll from "../../shared/WallpaperAlchemy/hooks/useInfiniteScroll";
+import usePrevState from "../../shared/WallpaperAlchemy/hooks/usePrevState";
 import { IWallpaper } from "../../shared/WallpaperAlchemy/types";
 import BaseSettings from "../base/BaseSettings";
 import { getWallpapers } from "./api";
-import { defaultData, Props } from "./types";
+import { defaultData, Image, Props } from "./types";
 import WallpaperAlchemyCustomCollectionSettingsCard from "./WallpaperAlchemyCustomCollectionSettingsCard";
 
 const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
   data = defaultData,
   setData,
+  cache,
 }) => {
   const intl = useIntl();
 
@@ -26,10 +28,15 @@ const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState<string>("");
+  const [initialCacheItems, setInitialCacheItems] = useState<Image[]>([]);
 
-  const filteredWallpapers = useMemo(() => {
+  const prevSearch = usePrevState(search);
+
+  const showCacheItems = !search.trim() && !!initialCacheItems.length;
+
+  const handleFilterWallpapers = (wallpapers: IWallpaper[]): IWallpaper[] => {
     return wallpapers.filter((wallpaper) => !data.ids.includes(wallpaper.id));
-  }, [wallpapers, data.ids]);
+  };
 
   const handleGetWallpapers = async (nextPage: number) => {
     try {
@@ -37,21 +44,27 @@ const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
         return;
       }
 
+      const searchString = search.trim();
+
       setLoading(true);
       setError(null);
 
       const response = await getWallpapers(intl.locale, {
         page: nextPage,
-        query: search.trim() || undefined,
+        query: searchString || undefined,
       });
 
       assertSuccess(response);
 
+      const wallpapers = searchString
+        ? response.data.data
+        : handleFilterWallpapers(response.data.data);
+
       if (nextPage === 1) {
-        setWallpapers(response.data.data);
+        setWallpapers(wallpapers);
       } else {
         setWallpapers((prevState) => {
-          return uniqueById(prevState, response.data.data);
+          return uniqueById(prevState, wallpapers);
         });
       }
 
@@ -68,7 +81,7 @@ const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
     }
   };
 
-  const handleSelectWallpaper = (wallpaper: IWallpaper) => {
+  const handleSelectWallpaper = (wallpaper: IWallpaper | Image) => {
     if (data.ids.includes(wallpaper.id)) {
       setData({ ...data, ids: data.ids.filter((id) => id !== wallpaper.id) });
 
@@ -90,7 +103,14 @@ const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
 
   useEffect(() => {
     handleGetWallpapers(1);
-    // }, [intl.locale, search]);
+  }, [search]);
+
+  useEffect(() => {
+    const searchString = search.trim();
+
+    if (searchString !== prevSearch && !searchString) {
+      setInitialCacheItems(cache?.items || []);
+    }
   }, [search]);
 
   return (
@@ -109,7 +129,7 @@ const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
           />
         </label>
 
-        {!!wallpapers.length && (
+        {(!!wallpapers.length || showCacheItems) && (
           <span className="customWallpapersTitle">
             <FormattedMessage
               {...backgroundMessages.wallpaperAlchemyCustomWallpapersMessage}
@@ -117,30 +137,45 @@ const WallpaperAlchemyCustomCollectionSettings: FC<Props> = ({
           </span>
         )}
 
-        {!!filteredWallpapers.length && (
-          <div className="customWallpapersScroll">
-            <div className="customWallpapers">
-              {filteredWallpapers.map((wallpaper) => {
-                return (
-                  <WallpaperAlchemyCustomCollectionSettingsCard
-                    key={wallpaper.id}
-                    wallpaper={wallpaper}
-                    isSelected={false}
-                    onSelect={() => handleSelectWallpaper(wallpaper)}
-                  />
-                );
-              })}
-            </div>
+        <div className="customWallpapersScroll">
+          <div className="customWallpapers">
+            {showCacheItems
+              ? initialCacheItems.map((wallpaper) => {
+                  const isSelected = data.ids.includes(wallpaper.id);
 
-            <div
-              aria-hidden
-              ref={sentryRef}
-              className="customWallpapersScrollSentry"
-            >
-              &nbsp;
-            </div>
+                  return (
+                    <WallpaperAlchemyCustomCollectionSettingsCard
+                      key={`cache-${wallpaper.id}`}
+                      wallpaper={wallpaper}
+                      isSelected={isSelected}
+                      onSelect={handleSelectWallpaper}
+                    />
+                  );
+                })
+              : null}
+
+            {wallpapers.map((wallpaper) => {
+              const isSelected = data.ids.includes(wallpaper.id);
+
+              return (
+                <WallpaperAlchemyCustomCollectionSettingsCard
+                  key={`wallpaper-${wallpaper.id}`}
+                  wallpaper={wallpaper}
+                  isSelected={isSelected}
+                  onSelect={handleSelectWallpaper}
+                />
+              );
+            })}
           </div>
-        )}
+
+          <div
+            aria-hidden
+            ref={sentryRef}
+            className="customWallpapersScrollSentry"
+          >
+            &nbsp;
+          </div>
+        </div>
 
         {error && (
           <div className="customWallpapersError">
