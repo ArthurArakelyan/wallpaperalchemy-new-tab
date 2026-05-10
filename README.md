@@ -1,7 +1,3 @@
-<p align="left">
-  <img src="src/views/shared/tabliss.svg" alt="TablissNG logo" width="400" />
-</p>
-
 > A beautiful, customisable New Tab page for Firefox and Chrome.
 
 <img src="screenshots/screenshot_1.png" width="49%"/> <img src="screenshots/screenshot_2.png" width="50%"/>
@@ -126,37 +122,3 @@ pnpm run build:firefox
 
   <p>For Firefox, go to <code>about:debugging#/runtime/this-firefox</code> and click on "Load Temporary Add-on".</p>
 </details>
-
-### Environment variables
-
-To develop with external services, you'll need to sign up for API keys and enter them into your `.env` file. Start by copying the example:
-
-```sh
-cp .env.example .env
-```
-
-Then, fill in your API keys:
-
-```ini
-GIPHY_API_KEY=your_key_here
-UNSPLASH_API_KEY=your_key_here
-NASA_API_KEY=your_key_here
-TRELLO_API_KEY=your_key_here # this requires the correct redirect URI to be set up in your Trello app settings: https://53dad6be72180770ccc08f0a6e2fc8a64dcf7b42.extensions.allizom.org and https://dlaogejjiafeobgofajdlkkhjlignalk.chromiumapp.org should work for firefox and chromium respectively.
-```
-
-## Credits
-
-Special thanks to **joelshepherd** for originally creating and maintaining this project.
-Also, huge appreciation to everyone who contributed, especially those whose pull requests I merged!
-
-<a href="https://github.com/BookCatKid/TablissNG/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=BookCatKid/TablissNG&max=30" />
-</a>
-
-## Contributing
-
-Take a look at the guide to [contributing](CONTRIBUTING.md) before starting.
-
-## Translations
-
-Check out the guide to [adding translations](TRANSLATING.md).
