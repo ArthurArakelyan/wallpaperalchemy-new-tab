@@ -88,18 +88,18 @@ const Errors: FC<Props> = ({ onClose }) => {
                 ? intl.formatMessage(messages.copied)
                 : intl.formatMessage(messages.copyErrorLog)}
           </button>
-          <a
-            className="button button--primary"
-            href="https://github.com/bookcatkid/TablissNG"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FormattedMessage
-              id="errors.visitGithub"
-              defaultMessage="Visit Github Page"
-              description="Link to the GitHub repository"
-            />
-          </a>
+          {/*<a*/}
+          {/*  className="button button--primary"*/}
+          {/*  href="https://github.com/bookcatkid/TablissNG"*/}
+          {/*  target="_blank"*/}
+          {/*  rel="noopener noreferrer"*/}
+          {/*>*/}
+          {/*  <FormattedMessage*/}
+          {/*    id="errors.visitGithub"*/}
+          {/*    defaultMessage="Visit Github Page"*/}
+          {/*    description="Link to the GitHub repository"*/}
+          {/*  />*/}
+          {/*</a>*/}
         </div>
         {errors.length === 0 ? (
           <p>

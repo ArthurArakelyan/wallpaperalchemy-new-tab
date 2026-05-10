@@ -32,25 +32,25 @@ const StoreError: FC<Props> = ({ onClose }) => {
             description="Second paragraph suggesting to restart the browser to fix the storage error"
           />
         </p>
-        <p>
-          <FormattedMessage
-            id="plugins.storageError3"
-            defaultMessage="If they do not return, the <guide>support guide</guide> covers the common causes and how to resolve them. Otherwise, create an issue at <github>GitHub</github> if you are still unable to solve the issue."
-            description="Third paragraph linking to the support guide and GitHub issues. Tags wrap clickable link text."
-            values={{
-              guide: (chunks) => (
-                <a href="https://bookcatkid.github.io/TablissNG/docs/support/storage-errors">
-                  {chunks}
-                </a>
-              ),
-              github: (chunks) => (
-                <a href="https://github.com/BookCatKid/tablissNG/issues/new">
-                  {chunks}
-                </a>
-              ),
-            }}
-          />
-        </p>
+        {/*<p>*/}
+        {/*  <FormattedMessage*/}
+        {/*    id="plugins.storageError3"*/}
+        {/*    defaultMessage="If they do not return, the <guide>support guide</guide> covers the common causes and how to resolve them. Otherwise, create an issue at <github>GitHub</github> if you are still unable to solve the issue."*/}
+        {/*    description="Third paragraph linking to the support guide and GitHub issues. Tags wrap clickable link text."*/}
+        {/*    values={{*/}
+        {/*      guide: (chunks) => (*/}
+        {/*        <a href="https://bookcatkid.github.io/TablissNG/docs/support/storage-errors">*/}
+        {/*          {chunks}*/}
+        {/*        </a>*/}
+        {/*      ),*/}
+        {/*      github: (chunks) => (*/}
+        {/*        <a href="https://github.com/BookCatKid/tablissNG/issues/new">*/}
+        {/*          {chunks}*/}
+        {/*        </a>*/}
+        {/*      ),*/}
+        {/*    }}*/}
+        {/*  />*/}
+        {/*</p>*/}
       </div>
     </Modal>
   );
