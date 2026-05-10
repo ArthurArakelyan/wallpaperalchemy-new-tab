@@ -4,7 +4,6 @@ import { Config } from "../../types";
 import WallpaperAlchemyMostPopularWallpapers from "./WallpaperAlchemyMostPopularWallpapers";
 import WallpaperAlchemyMostPopularWallpapersSettings from "./WallpaperAlchemyMostPopularWallpapersSettings";
 
-// TODO: translations
 const messages = defineMessages({
   name: {
     id: "backgrounds.wallpaperAlchemyMostPopularWallpapers.name",

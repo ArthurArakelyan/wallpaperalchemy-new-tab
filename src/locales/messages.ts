@@ -218,29 +218,25 @@ export const backgroundMessages = defineMessages({
     defaultMessage: "Search Term",
     description: "Label for background search term input",
   },
-  // TODO: translations
   tryAgain: {
     id: "backgrounds.tryAgain",
     defaultMessage: "Try Again",
-    description: "Try Againt",
+    description: "Try again button label after an error",
   },
-  // TODO: translations
   wallpaperAlchemyDefaultErrorMessage: {
     id: "backgrounds.wallpaperAlchemyDefaultErrorMessage",
     defaultMessage: "Something went wrong",
-    description: "Label for errors",
+    description: "Generic error message for wallpaper alchemy",
   },
-  // TODO: translations
   wallpaperAlchemyTagsMessage: {
     id: "backgrounds.wallpaperAlchemyTagsMessage",
-    defaultMessage: "Please select a tag from the list below",
-    description: "Label categories",
+    defaultMessage: "Please select a category from the list below",
+    description: "Prompt to select a tag in wallpaper alchemy categories",
   },
-  // TODO: translations
   wallpaperAlchemyCustomWallpapersMessage: {
-    id: "backgrounds.wallpaperAlchemyTagsMessage",
+    id: "backgrounds.wallpaperAlchemyCustomWallpapersMessage",
     defaultMessage: "Please select wallpapers from below",
-    description: "Label categories",
+    description: "Prompt to select wallpapers in custom collection",
   },
 });
 

@@ -4,7 +4,6 @@ import { Config } from "../../types";
 import WallpaperAlchemyCategories from "./WallpaperAlchemyCategories";
 import WallpaperAlchemyCategoriesSettings from "./WallpaperAlchemyCategoriesSettings";
 
-// TODO: translations
 const messages = defineMessages({
   name: {
     id: "backgrounds.wallpaperAlchemyCategories.name",
