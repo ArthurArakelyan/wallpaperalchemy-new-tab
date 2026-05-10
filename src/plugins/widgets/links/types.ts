@@ -60,8 +60,8 @@ export const defaultData: Data = {
   links: [
     {
       id: "default-link",
-      url: "https://github.com/BookCatKid/TablissNG",
-      name: "TablissNG",
+      url: "https://www.wallpaperalchemy.com",
+      name: "Wallpaper Alchemy",
     },
   ],
   visible: true,
