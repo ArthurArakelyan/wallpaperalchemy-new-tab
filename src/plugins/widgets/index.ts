@@ -10,7 +10,7 @@ import github from "./github";
 import greeting from "./greeting";
 import html from "./html";
 import ipInfo from "./ipInfo";
-import joke from "./joke";
+// import joke from "./joke";
 import js from "./js";
 import leetcode from "./leetcode";
 import links from "./links";
@@ -26,7 +26,7 @@ import time from "./time";
 import timeTracker from "./timeTracker";
 import todo from "./todo";
 import topSites from "./topSites";
-import trello from "./trello";
+// import trello from "./trello";
 import weather from "./weather";
 import workHours from "./workHours";
 
@@ -41,7 +41,7 @@ export const widgetConfigs = [
   greeting,
   html,
   ipInfo,
-  joke,
+  // joke,
   links,
   literatureClock,
   message,
@@ -65,5 +65,5 @@ if (BUILD_TARGET === "web") {
 if (BUILD_TARGET != "web" && BUILD_TARGET != "safari") {
   widgetConfigs.push(topSites);
   widgetConfigs.push(bookmarks);
-  widgetConfigs.push(trello);
+  // widgetConfigs.push(trello);
 }
