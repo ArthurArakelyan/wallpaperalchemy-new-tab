@@ -19,7 +19,7 @@ import {
 } from "./types";
 import { Board, List } from "./types";
 import ListCheckbox from "./ui/ListCheckbox/ListCheckbox";
-import { onTrelloSignOut, trelloAuthFlow } from "./utils/auth";
+import { onTrelloSignOut } from "./utils/auth";
 
 const TrelloSettings: FC<Props> = ({
   data = defaultData,
@@ -30,7 +30,7 @@ const TrelloSettings: FC<Props> = ({
   const {
     authStatus: authState,
     authError,
-    signIn,
+    // signIn,
     signOut,
   } = useAuth<TrelloSession>("trello", trelloAuthStore);
 
@@ -49,7 +49,7 @@ const TrelloSettings: FC<Props> = ({
   const DEBOUNCE_INTERVAL = 525;
 
   const onAuthenticateClick = async () => {
-    await signIn(trelloAuthFlow);
+    // await signIn(trelloAuthFlow);
   };
 
   const onSignout = async () => {
