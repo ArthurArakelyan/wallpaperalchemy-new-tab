@@ -11,6 +11,14 @@ import {
 
 export default class WallpaperService extends Service {
   static getWallpapers(query?: QueryType, locale?: Locale) {
+    if (!DEV && BUILD_TARGET === "chromium") {
+      return this.request<IGetWallpapersResponseData>("GET", "wallpapers", {
+        query: { ...query, locale },
+        locale,
+      });
+    }
+
+    // Firefox through proxy
     return this.request<IGetWallpapersResponseData>(
       "GET",
       "browser-extension/wallpapers",
@@ -23,6 +31,18 @@ export default class WallpaperService extends Service {
   }
 
   static getWallpaper(id: string | number, locale?: Locale) {
+    if (!DEV && BUILD_TARGET === "chromium") {
+      return this.request<IGetWallpaperResponseData>(
+        "GET",
+        `wallpapers/${id}`,
+        {
+          query: { locale },
+          locale,
+        },
+      );
+    }
+
+    // Firefox through proxy
     return this.request<IGetWallpaperResponseData>(
       "GET",
       `browser-extension/wallpapers/${id}`,

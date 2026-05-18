@@ -9,6 +9,14 @@ import {
 
 export default class TagService extends Service {
   static getTags(query?: QueryType, locale?: Locale) {
+    if (!DEV && BUILD_TARGET === "chromium") {
+      return this.request<IGetTagsResponseData>("GET", "tags", {
+        query: { ...query, locale },
+        locale,
+      });
+    }
+
+    // Firefox through proxy
     return this.request<IGetTagsResponseData>("GET", "browser-extension/tags", {
       query: { ...query, locale },
       locale,
