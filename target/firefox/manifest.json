@@ -32,5 +32,6 @@
   "optional_permissions": [
     "bookmarks",
     "topSites"
-  ]
+  ],
+  "host_permissions": ["https://server.wallpaperalchemy.com/*"]
 }

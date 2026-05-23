@@ -11,7 +11,7 @@ import {
 
 export default class WallpaperService extends Service {
   static getWallpapers(query?: QueryType, locale?: Locale) {
-    if (!DEV && BUILD_TARGET === "chromium") {
+    if (BUILD_TARGET === "chromium") {
       return this.request<IGetWallpapersResponseData>("GET", "wallpapers", {
         query: { ...query, locale },
         locale,
@@ -31,7 +31,7 @@ export default class WallpaperService extends Service {
   }
 
   static getWallpaper(id: string | number, locale?: Locale) {
-    if (!DEV && BUILD_TARGET === "chromium") {
+    if (BUILD_TARGET === "chromium") {
       return this.request<IGetWallpaperResponseData>(
         "GET",
         `wallpapers/${id}`,

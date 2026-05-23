@@ -1,6 +1,6 @@
 import { errorCodes } from "../../constants/errorCodes";
 import { defaultLocale } from "../../constants/i18n";
-import { apiUrl } from "../../constants/main";
+import { apiUrl, url as siteUrl } from "../../constants/main";
 import { baseRequestTimeout } from "../../constants/request";
 import json from "../json";
 import { createQueryParams } from "../query";
@@ -35,8 +35,14 @@ const request = async <T = never, D = never>(
       method: method,
       body: isFormData ? body : body ? json.stringify(body) : undefined,
       signal: abortController.signal,
+      credentials: BUILD_TARGET === "chromium" ? "include" : undefined,
       headers: {
         "X-Accept-Language": locale,
+        ...(BUILD_TARGET === "chromium"
+          ? {
+              Origin: siteUrl,
+            }
+          : {}),
         ...(token
           ? {
               Authorization: `Bearer ${token}`,

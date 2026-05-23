@@ -21,6 +21,7 @@
     "bookmarks",
     "topSites"
   ],
+  "host_permissions": ["https://server.wallpaperalchemy.com/*"],
   "background": {
     "service_worker": "service-worker.js"
   }
