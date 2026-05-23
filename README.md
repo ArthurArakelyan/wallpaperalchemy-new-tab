@@ -5,31 +5,13 @@
 <img src="screenshots/screenshot_5.png" width="100%"/>
 
 <div align="center">
-    <a href="https://chromewebstore.google.com/detail/tablissng/dlaogejjiafeobgofajdlkkhjlignalk">
-        <img src="https://img.shields.io/chrome-web-store/users/dlaogejjiafeobgofajdlkkhjlignalk?logo=googlechrome&logoColor=ffffff&color=0779ba"></a>
-    <a href="https://addons.mozilla.org/en-US/firefox/addon/tablissng/">
-        <img src="https://img.shields.io/amo/users/tablissng?logo=firefoxbrowser&logoColor=ffffff"></a>
+    <a href="https://chromewebstore.google.com/detail/tablissng/bfipcpdodajhkebldldfjdjlnbgfnkbi">
+        <img src="https://img.shields.io/chrome-web-store/users/bfipcpdodajhkebldldfjdjlnbgfnkbi?logo=googlechrome&logoColor=ffffff&color=0779ba"></a>
+    <a href="https://addons.mozilla.org/en-US/firefox/addon/wallpaper-alchemy-new-tab/">
+        <img src="https://img.shields.io/amo/users/wallpaper-alchemy-new-tab?logo=firefoxbrowser&logoColor=ffffff"></a>
     <a href="https://www.gnu.org/licenses/gpl-3.0">
         <img src="https://img.shields.io/badge/License-GNU%20GPL%20v3-blue"></a>
 </div>
-
-## Maintained Fork of Tabliss
-
-This repository is a maintained fork of Tabliss, originally a customizable new tab page for Firefox and Chrome. The original project has been abandoned, with no updates for over a year and numerous unmerged pull requests. I cloned the repository and merged most pending pull requests to bring in improvements and bug fixes. Moving forward, I will actively maintain and update this fork to keep Tabliss functional and up to date.
-
-### What's Next?
-
-- Continued updates and bug fixes
-- Adding new features from community contributions
-- Keeping dependencies up to date
-
-If you were a contributor to the original repo or have ideas for improvements, feel free to open an issue or submit a pull request. Let’s keep Tabliss alive!
-
-### Looking for contribution ideas?
-
-Check out the [github project](https://github.com/users/BookCatKid/projects/3?query=sort%3Aupdated-desc+is%3Aopen) for a list of features that are wanted, but not yet implemented. Anything not in `in progress` is most likely free for you to work on!
-
----
 
 ## Brief Overview of a Few Improvements Over Tabliss
 
@@ -55,17 +37,10 @@ This list is by no means exhaustive. TablissNG includes many other tweaks, quali
 
 ## Installation
 
-<a href="https://addons.mozilla.org/en-US/firefox/addon/tablissng/"><img src="assets/badges/firefox-badge.svg" height="70"></a>
-<a href="https://chromewebstore.google.com/detail/tablissng/dlaogejjiafeobgofajdlkkhjlignalk"><img src="assets/badges/chrome-badge.png" alt="Get the Extension on Chrome" height="70" style="border-radius:4px;"></a>
-<a href="https://microsoftedge.microsoft.com/addons/detail/tablissng/mkaphhbkcccpgkfaifhhdfckagnkcmhm"><img src="assets/badges/edge-badge.png" alt="Get the Extension on Edge" height="70"></a>
+<a href="https://addons.mozilla.org/firefox/addon/wallpaper-alchemy-new-tab/"><img src="assets/badges/firefox-badge.svg" height="70"></a>
+<a href="https://chromewebstore.google.com/detail/wallpaper-alchemy---new-t/bfipcpdodajhkebldldfjdjlnbgfnkbi"><img src="assets/badges/chrome-badge.png" alt="Get the Extension on Chrome" height="70" style="border-radius:4px;"></a>
 
-The extension is available in the [Firefox Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/tablissng/), in the [Chrome Web Store](https://chromewebstore.google.com/detail/tablissng/dlaogejjiafeobgofajdlkkhjlignalk), and in the [Edge Add-ons Store](https://microsoftedge.microsoft.com/addons/detail/tablissng/mkaphhbkcccpgkfaifhhdfckagnkcmhm). If you want to use Safari, see [INSTALL.md](INSTALL.md).
-
-**Nightly Builds (Firefox):**
-
-- **Nightly** (v1.6.5.0): [Install Nightly](https://github.com/BookCatKid/TablissNG/releases/download/nightly-auto/tablissng-1.6.5.0.xpi)
-
-If you want to install the extension manually, or want nightly builds, see [INSTALL.md](INSTALL.md).
+The extension is available in the [Firefox Add-ons Store](https://addons.mozilla.org/firefox/addon/wallpaper-alchemy-new-tab/), in the [Chrome Web Store](https://chromewebstore.google.com/detail/wallpaper-alchemy---new-t/bfipcpdodajhkebldldfjdjlnbgfnkbi). If you want to use Safari, see [INSTALL.md](INSTALL.md).
 
 ## Running Locally
 
@@ -74,8 +49,8 @@ For local development, you'll need Node.js and pnpm installed. Latest versions s
 First, clone the repo:
 
 ```sh
-git clone https://github.com/BookCatKid/TablissNG.git
-cd TablissNG
+git clone https://github.com/ArthurArakelyan/wallpaperalchemy-new-tab
+cd wallpaperalchemy-new-tab
 ```
 
 Then install the dependencies:
